@@ -10,12 +10,17 @@ export const siteConfig = {
 export const cars = [
     // --- DEALS OF THE WEEK SECTION ---
     {
-        id: "camry2016",
-        name: "Toyota Camry 2016",
-        status: "Distress Deal",
-        price: "₦5,200,000",
-        photo: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=600&q=80",
-        video: "https://assets.mixkit.co/videos/preview/mixkit-modern-car-driving-on-a-highway-43236-large.mp4",
+        id: "toyota-camry-2018",
+        name: "Toyota Camry 2018",
+        status: "Belgium Grade",
+        price: "₦32,000,000",
+        photo: "/mmm-camry.jpeg",
+        images: [
+            "/mmm-camry.jpeg",
+            "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80"
+        ],
+        video: "/Mmm-video.mp4",
         tag: "DISTRESS DEAL",
         tagClass: "label-luxury",
         isDeal: true
@@ -26,6 +31,10 @@ export const cars = [
         status: "Belgium Grade",
         price: "₦18,500,000",
         photo: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80",
+        images: [
+            "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80"
+        ],
         video: "https://assets.mixkit.co/videos/preview/mixkit-sports-car-driving-fast-on-a-highway-34298-large.mp4",
         tag: "BELGIUM GRADE",
         tagClass: "label-luxury",
@@ -37,6 +46,10 @@ export const cars = [
         status: "Local Used",
         price: "₦4,200,000",
         photo: "https://images.unsplash.com/photo-1593460354583-421711202868?auto=format&fit=crop&w=600&q=80",
+        images: [
+            "https://images.unsplash.com/photo-1593460354583-421711202868?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80"
+        ],
         video: "https://assets.mixkit.co/videos/preview/mixkit-white-car-driving-on-a-wet-highway-at-night-42289-large.mp4",
         tag: "LOCAL USED",
         tagClass: "label-luxury",
@@ -50,6 +63,10 @@ export const cars = [
         status: "Foreign Used",
         price: "₦22,800,000",
         photo: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80",
+        images: [
+            "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?auto=format&fit=crop&w=600&q=80"
+        ],
         video: "https://assets.mixkit.co/videos/preview/mixkit-dashboard-of-a-car-driving-through-the-city-43187-large.mp4",
         tag: "SUV",
         tagClass: "label-luxury-white",
@@ -62,6 +79,10 @@ export const cars = [
         status: "Foreign Used",
         price: "₦15,500,000",
         photo: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80",
+        images: [
+            "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80"
+        ],
         video: "https://assets.mixkit.co/videos/preview/mixkit-car-headlights-glowing-in-the-dark-43234-large.mp4",
         tag: "SEDAN",
         tagClass: "label-luxury-white",
@@ -74,6 +95,10 @@ export const cars = [
         status: "Foreign Used",
         price: "₦38,000,000",
         photo: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80",
+        images: [
+            "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80"
+        ],
         video: "https://assets.mixkit.co/videos/preview/mixkit-modern-car-driving-on-a-highway-43236-large.mp4",
         tag: "4X4 SUV",
         tagClass: "label-luxury-white",
@@ -86,6 +111,10 @@ export const cars = [
         status: "Foreign Used",
         price: "₦28,500,000",
         photo: "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?auto=format&fit=crop&w=600&q=80",
+        images: [
+            "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?auto=format&fit=crop&w=600&q=80",
+            "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80"
+        ],
         video: "https://assets.mixkit.co/videos/preview/mixkit-sports-car-driving-fast-on-a-highway-34298-large.mp4",
         tag: "LUXURY SUV",
         tagClass: "label-luxury-white",

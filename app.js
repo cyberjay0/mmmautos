@@ -192,53 +192,167 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ==========================================
-    // 4. Walkthrough Video Modal Player
+    // 4. Vehicle Details Modal & Carousel Player
     // ==========================================
-    const videoModal = document.getElementById('video-modal');
-    const modalBackdrop = document.getElementById('video-modal-backdrop');
-    const modalClose = document.getElementById('video-modal-close');
-    const modalVideoPlayer = document.getElementById('modal-video-player');
+    const detailsModal = document.getElementById('details-modal');
+    const detailsBackdrop = document.getElementById('details-modal-backdrop');
+    const detailsClose = document.getElementById('details-modal-close');
+    const modalSlidesWrapper = document.getElementById('modal-slides-wrapper');
+    const modalCarTag = document.getElementById('modal-car-tag');
     const modalCarName = document.getElementById('modal-car-name');
-    const modalCarType = document.getElementById('modal-car-type');
-    const openModalBtns = document.querySelectorAll('.open-walkthrough-btn');
+    const modalCarStatus = document.getElementById('modal-car-status');
+    const modalCarPrice = document.getElementById('modal-car-price');
+    const modalVideoSection = document.getElementById('modal-video-section');
+    const modalVideoPlayer = document.getElementById('modal-video-player');
+    const modalActionVideo = document.getElementById('modal-action-video');
+    const modalActionWhatsapp = document.getElementById('modal-action-whatsapp');
+    const galleryPrev = document.getElementById('gallery-prev');
+    const galleryNext = document.getElementById('gallery-next');
+    const galleryDots = document.getElementById('gallery-dots');
 
-    function openModal(card) {
-        const carName = card.querySelector('.car-name').textContent;
-        const carStatus = card.querySelector('.car-status').textContent;
-        const videoSrc = card.getAttribute('data-video');
+    let currentSlide = 0;
+    let totalSlides = 0;
 
-        modalCarName.textContent = `${carName} - Full Walkthrough`;
-        modalCarType.textContent = carStatus;
-        modalVideoPlayer.src = videoSrc;
-
-        videoModal.classList.add('active');
-        modalVideoPlayer.play().catch(err => {
-            console.log("Modal play was prevented:", err);
+    function goToSlide(idx) {
+        if (totalSlides === 0) return;
+        currentSlide = (idx + totalSlides) % totalSlides;
+        modalSlidesWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        // Update dots active class
+        const dots = galleryDots.querySelectorAll('.gallery-dot');
+        dots.forEach((dot, dIdx) => {
+            if (dIdx === currentSlide) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
         });
     }
 
-    function closeModal() {
-        videoModal.classList.remove('active');
+    function openDetailsModal(cardId) {
+        const car = cars.find(c => c.id === cardId);
+        if (!car) return;
+
+        // 1. Text & Pricing Info
+        modalCarName.textContent = car.name;
+        modalCarStatus.textContent = car.status;
+        modalCarPrice.textContent = car.price;
+        modalCarTag.textContent = car.tag;
+        modalCarTag.className = `card-tag ${car.tagClass}`;
+
+        // 2. Video Player Setup
+        modalVideoPlayer.src = car.video;
+        modalVideoSection.style.display = 'none'; // Hide initially
+        modalActionVideo.innerHTML = `
+            <svg class="icon-btn-inline" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            View Walkthrough Video
+        `;
+
+        // 3. WhatsApp CTA Action Link
+        const message = encodeURIComponent(`Hi MMM Autos, I am interested in the ${car.name} (${car.status}) priced at ${car.price}. Please check availability.`);
+        modalActionWhatsapp.href = `https://wa.me/2348156840439?text=${message}`;
+
+        // 4. Generate Gallery Slides & Dots
+        modalSlidesWrapper.innerHTML = '';
+        galleryDots.innerHTML = '';
+        
+        const galleryImages = car.images && car.images.length > 0 ? car.images : [car.photo];
+        totalSlides = galleryImages.length;
+        currentSlide = 0;
+
+        galleryImages.forEach((imgSrc, idx) => {
+            const img = document.createElement('img');
+            img.src = imgSrc;
+            img.alt = `${car.name} - Slide ${idx + 1}`;
+            modalSlidesWrapper.appendChild(img);
+
+            const dot = document.createElement('div');
+            dot.className = `gallery-dot${idx === 0 ? ' active' : ''}`;
+            dot.addEventListener('click', (e) => {
+                e.stopPropagation();
+                goToSlide(idx);
+            });
+            galleryDots.appendChild(dot);
+        });
+
+        // Show/hide gallery arrows based on slide count
+        if (totalSlides <= 1) {
+            galleryPrev.style.display = 'none';
+            galleryNext.style.display = 'none';
+            galleryDots.style.display = 'none';
+        } else {
+            galleryPrev.style.display = 'flex';
+            galleryNext.style.display = 'flex';
+            galleryDots.style.display = 'flex';
+        }
+
+        // Reset slide wrapper translation
+        modalSlidesWrapper.style.transform = 'translateX(0%)';
+
+        // 5. Open Modal Panel
+        detailsModal.classList.add('active');
+    }
+
+    function closeDetailsModal() {
+        detailsModal.classList.remove('active');
         modalVideoPlayer.pause();
-        modalVideoPlayer.src = ""; // Clear src to stop bandwidth consumption
+        modalVideoPlayer.src = '';
     }
 
-    openModalBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
+    // Attach click events using delegation
+    document.addEventListener('click', (e) => {
+        const card = e.target.closest('.car-card');
+        if (!card) return;
+
+        // Exclude actions if clicked directly on buttons to avoid double execution, 
+        // but if clicked on card details button, open the modal
+        const cardId = card.getAttribute('data-id');
+        if (cardId) {
             e.preventDefault();
-            e.stopPropagation();
-            const card = btn.closest('.car-card');
-            if (card) openModal(card);
-        });
+            openDetailsModal(cardId);
+        }
     });
 
-    modalClose.addEventListener('click', closeModal);
-    modalBackdrop.addEventListener('click', closeModal);
+    // Gallery Prev / Next Controls
+    galleryPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        goToSlide(currentSlide - 1);
+    });
 
-    // Escape Key to Close Modal
+    galleryNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        goToSlide(currentSlide + 1);
+    });
+
+    // Walkthrough Video Button Toggle inside Modal
+    modalActionVideo.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (modalVideoSection.style.display === 'none') {
+            modalVideoSection.style.display = 'block';
+            modalActionVideo.innerHTML = `
+                <svg class="icon-btn-inline" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg>
+                Hide Walkthrough Video
+            `;
+            modalVideoPlayer.play().catch(err => {
+                console.log("Walkthrough play prevented:", err);
+            });
+        } else {
+            modalVideoSection.style.display = 'none';
+            modalActionVideo.innerHTML = `
+                <svg class="icon-btn-inline" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                View Walkthrough Video
+            `;
+            modalVideoPlayer.pause();
+        }
+    });
+
+    detailsClose.addEventListener('click', closeDetailsModal);
+    detailsBackdrop.addEventListener('click', closeDetailsModal);
+
+    // Escape Key to Close Details Modal
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && videoModal.classList.contains('active')) {
-            closeModal();
+        if (e.key === 'Escape' && detailsModal.classList.contains('active')) {
+            closeDetailsModal();
         }
     });
 
