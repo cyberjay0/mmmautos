@@ -10,15 +10,18 @@ export const siteConfig = {
 export const cars = [
     // --- DEALS OF THE WEEK SECTION ---
     {
-        id: "toyota-camry-2018",
-        name: "Toyota Camry 2018",
+        id: "honda-accord-2013",
+        name: "Honda Accord 2013",
         status: "Belgium Grade",
-        price: "₦32,000,000",
-        photo: "/mmm-camry.jpeg",
+        price: "₦9,500,000",
+        photo: "/coupe card.jpeg",
         images: [
-            "/mmm-camry.jpeg",
-            "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80"
+            "/coupe front.jpeg",
+            "/coupe back.jpeg",
+            "/coupe steering.jpeg",
+            "/coupe interior 1.jpeg",
+            "/coupe interior.jpeg",
+            "/coupe vin.jpeg"
         ],
         video: "/Mmm-video.mp4",
         tag: "DISTRESS DEAL",
