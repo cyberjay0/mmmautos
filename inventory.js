@@ -23,24 +23,31 @@ export const cars = [
             "/coupe interior.jpeg",
             "/coupe vin.jpeg"
         ],
-        video: "/Mmm-video.mp4",
+        video: "/public/mmm accord coupe.mp4",
         tag: "DISTRESS DEAL",
         tagClass: "label-luxury",
+        specs: ["Engine: L4 2.4L", "Mileage: 89k mi", "Non-Accidented", "Keyless Entry"],
         isDeal: true
     },
     {
-        id: "gle2019",
-        name: "Mercedes-Benz GLE 350 2019",
+        id: "Cls63",
+        name: "Mercedes-Benz CLS 63 2017",
         status: "Belgium Grade",
-        price: "₦18,500,000",
-        photo: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80",
+        price: "₦35,000,000",
+        photo: "public/CLS card.jpeg",
         images: [
-            "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80"
+            "public/CLS front.jpeg",
+            "public/CLS side.jpeg",
+            "public/CLS back.jpeg",
+            "public/CLS steering.jpeg",
+            "public/CLS interior.jpeg",
+            "public/CLS interior 2.jpeg",
+            "public/CLS Engine.jpeg"
         ],
-        video: "https://assets.mixkit.co/videos/preview/mixkit-sports-car-driving-fast-on-a-highway-34298-large.mp4",
+        video: "public/mmm cls.mp4",
         tag: "BELGIUM GRADE",
         tagClass: "label-luxury",
+        specs: ["Engine: V8 BiTurbo", "Mileage: 45k mi", "Non-Accidented", "Keyless Go"],
         isDeal: true
     },
     {
@@ -56,6 +63,7 @@ export const cars = [
         video: "https://assets.mixkit.co/videos/preview/mixkit-white-car-driving-on-a-wet-highway-at-night-42289-large.mp4",
         tag: "LOCAL USED",
         tagClass: "label-luxury",
+        specs: ["Engine: L4 2.4L", "Mileage: 120k mi", "Clean Title", "Key Start"],
         isDeal: true
     },
 
@@ -74,6 +82,7 @@ export const cars = [
         tag: "SUV",
         tagClass: "label-luxury-white",
         category: "suv",
+        specs: ["Engine: V6 3.5L", "Mileage: 58k mi", "Non-Accidented", "Panoramic Roof"],
         isInventory: true
     },
     {
@@ -90,6 +99,7 @@ export const cars = [
         tag: "SEDAN",
         tagClass: "label-luxury-white",
         category: "sedan",
+        specs: ["Engine: L4 Turbo", "Mileage: 64k mi", "Non-Accidented", "Keyless Go"],
         isInventory: true
     },
     {
@@ -106,6 +116,7 @@ export const cars = [
         tag: "4X4 SUV",
         tagClass: "label-luxury-white",
         category: "suv",
+        specs: ["Engine: V8 4.6L", "Mileage: 72k mi", "Non-Accidented", "Push Button Start"],
         isInventory: true
     },
     {
@@ -122,6 +133,7 @@ export const cars = [
         tag: "LUXURY SUV",
         tagClass: "label-luxury-white",
         category: "suv luxury",
+        specs: ["Engine: V6 Supercharged", "Mileage: 50k mi", "Non-Accidented", "Keyless Entry"],
         isInventory: true
     }
 ];

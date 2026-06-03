@@ -24,6 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const buttonText = type === 'deal' ? 'View Deal' : 'View Details';
         const categoryAttr = car.category ? `data-category="${car.category}"` : '';
 
+        const specsHtml = car.specs && car.specs.length > 0
+            ? `<div class="card-specs-list">
+                ${car.specs.map(spec => `<span class="card-spec-badge">${spec}</span>`).join('')}
+               </div>`
+            : '';
+
         return `
             <div class="car-card hover-video-card reveal" data-id="${car.id}" ${categoryAttr} data-video="${car.video}">
                 <div class="card-media-wrapper">
@@ -38,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="card-info">
                     <h3 class="car-name">${car.name}</h3>
                     <p class="car-status">${car.status}</p>
+                    ${specsHtml}
                     <div class="card-footer">
                         <span class="car-price">${car.price}</span>
                         <button class="btn btn-outline-dark btn-sm open-walkthrough-btn">${buttonText}</button>
@@ -251,6 +258,34 @@ document.addEventListener('DOMContentLoaded', () => {
         // 3. WhatsApp CTA Action Link
         const message = encodeURIComponent(`Hi MMM Autos, I am interested in the ${car.name} (${car.status}) priced at ${car.price}. Please check availability.`);
         modalActionWhatsapp.href = `https://wa.me/2348156840439?text=${message}`;
+
+        // 3.5. Generate Specifications Grid
+        const modalSpecsContainer = document.getElementById('modal-car-specs');
+        if (modalSpecsContainer) {
+            modalSpecsContainer.innerHTML = '';
+            if (car.specs && car.specs.length > 0) {
+                modalSpecsContainer.style.display = 'grid';
+                car.specs.forEach(spec => {
+                    let label = 'Feature';
+                    let value = spec;
+                    if (spec.includes(':')) {
+                        const parts = spec.split(':');
+                        label = parts[0].trim();
+                        value = parts.slice(1).join(':').trim();
+                    }
+                    
+                    const itemHtml = `
+                        <div class="modal-spec-item">
+                            <span class="modal-spec-label">${label}</span>
+                            <span class="modal-spec-value">${value}</span>
+                        </div>
+                    `;
+                    modalSpecsContainer.insertAdjacentHTML('beforeend', itemHtml);
+                });
+            } else {
+                modalSpecsContainer.style.display = 'none';
+            }
+        }
 
         // 4. Generate Gallery Slides & Dots
         modalSlidesWrapper.innerHTML = '';

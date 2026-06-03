@@ -1011,10 +1011,39 @@ ul {
 .car-status {
     font-size: 0.75rem;
     color: var(--text-muted);
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+}
+
+.card-specs-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+    margin-top: auto;
+}
+
+.card-spec-badge {
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-dark);
+    background-color: rgba(7, 10, 15, 0.03);
+    border: 1px solid var(--border-color);
+    padding: 3px 8px;
+    border-radius: var(--border-radius-sm);
+    display: inline-flex;
+    align-items: center;
+    transition: var(--transition-fast);
+}
+
+.car-card:hover .card-spec-badge {
+    border-color: rgba(200, 162, 97, 0.35);
+    background-color: rgba(200, 162, 97, 0.04);
+    color: var(--dark);
 }
 
 .card-footer {
@@ -1574,6 +1603,42 @@ ul {
     letter-spacing: 0.5px;
 }
 
+.modal-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 24px;
+}
+
+.modal-spec-item {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 12px;
+    border-radius: var(--border-radius-sm);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.modal-spec-label {
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0.65;
+}
+
+.modal-spec-value {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 0.5px;
+}
+
 .modal-video-section {
     margin-bottom: 24px;
     border: 1px solid rgba(200, 162, 97, 0.15);
@@ -1627,6 +1692,15 @@ ul {
     }
     .modal-body {
         padding: 24px 20px;
+    }
+    .modal-specs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+    .modal-spec-item {
+        padding: 8px;
     }
     .modal-info-header {
         flex-direction: column;
