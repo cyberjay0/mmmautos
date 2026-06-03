@@ -30,71 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // ==========================================
-    // 1. Currency Exchange System
-    // ==========================================
-    const currencySelect = document.getElementById('currency-select');
-    const priceElements = document.querySelectorAll('.car-price');
 
-    // Exchange rates relative to USD (1.0 USD base)
-    const exchangeRates = {
-        USD: 1.0,
-        NGN: 1500, // 1 USD = 1500 NGN
-        EUR: 0.92, // 1 USD = 0.92 EUR
-        GBP: 0.78, // 1 USD = 0.78 GBP
-        JPY: 155   // 1 USD = 155 JPY
-    };
-
-    // Currency Formatting Config
-    const currencyFormats = {
-        NGN: { locale: 'en-NG', symbol: '₦', precision: 0 },
-        USD: { locale: 'en-US', symbol: '$', precision: 0 },
-        EUR: { locale: 'de-DE', symbol: '€', precision: 0 },
-        GBP: { locale: 'en-GB', symbol: '£', precision: 0 },
-        JPY: { locale: 'ja-JP', symbol: '¥', precision: 0 }
-    };
-
-    function updatePrices(targetCurrency) {
-        const rate = exchangeRates[targetCurrency];
-        const format = currencyFormats[targetCurrency];
-
-        priceElements.forEach(elem => {
-            const card = elem.closest('.car-card');
-            if (!card) return;
-
-            // Get base price in USD
-            const basePriceUSD = parseFloat(card.getAttribute('data-base-price'));
-            if (isNaN(basePriceUSD)) return;
-
-            // Convert to target currency
-            let convertedAmount = basePriceUSD * rate;
-
-            // Apply minor rounding to match standard pricing looks (e.g. 5,200,000 Naira instead of 5,200,005)
-            if (targetCurrency === 'NGN') {
-                convertedAmount = Math.round(convertedAmount / 50000) * 50000;
-            } else if (targetCurrency === 'USD' || targetCurrency === 'EUR' || targetCurrency === 'GBP') {
-                convertedAmount = Math.round(convertedAmount / 100) * 100;
-            } else {
-                convertedAmount = Math.round(convertedAmount);
-            }
-
-            // Format price string
-            const formattedPrice = convertedAmount.toLocaleString(format.locale, {
-                minimumFractionDigits: format.precision,
-                maximumFractionDigits: format.precision
-            });
-
-            elem.textContent = `${format.symbol}${formattedPrice}`;
-        });
-    }
-
-    // Initialize display values in Naira
-    updatePrices('NGN');
-
-    // Event listener for currency change
-    currencySelect.addEventListener('change', (e) => {
-        updatePrices(e.target.value);
-    });
 
 
     // ==========================================
