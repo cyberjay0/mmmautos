@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!video || !videoSrc) return;
 
-        // Mouse Enter - Play Video Walkthrough
+        // Mouse Enter - Play Video Walkthrough (Try unmuted first, fall back to muted if blocked)
         card.addEventListener('mouseenter', () => {
             // Lazy load video source on hover
             if (!video.src) {
@@ -172,11 +172,17 @@ document.addEventListener('DOMContentLoaded', () => {
             image.classList.remove('active');
             video.classList.add('active');
 
-            // Play video with error catch
+            // Try to play with sound unmuted
+            video.muted = false;
             const playPromise = video.play();
             if (playPromise !== undefined) {
                 playPromise.catch(error => {
-                    console.log("Autoplay was prevented or video load failed:", error);
+                    console.log("Unmuted autoplay was prevented, falling back to muted play:", error);
+                    // Fall back to muted play
+                    video.muted = true;
+                    video.play().catch(err => {
+                        console.log("Muted autoplay also failed:", err);
+                    });
                 });
             }
         });
