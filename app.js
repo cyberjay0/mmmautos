@@ -291,10 +291,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 5. Open Modal Panel
         detailsModal.classList.add('active');
+        document.body.classList.add('modal-open');
     }
 
     function closeDetailsModal() {
         detailsModal.classList.remove('active');
+        document.body.classList.remove('modal-open');
         modalVideoPlayer.pause();
         modalVideoPlayer.src = '';
     }

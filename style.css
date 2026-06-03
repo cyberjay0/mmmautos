@@ -896,7 +896,7 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     opacity: 0;
     transition: transform var(--transition-slow), opacity var(--transition-normal);
 }
@@ -915,7 +915,7 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     opacity: 0;
     transition: opacity var(--transition-normal);
 }
@@ -1325,10 +1325,12 @@ ul {
     height: 100%;
     z-index: 1000;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     opacity: 0;
     visibility: hidden;
+    overflow-y: auto;
+    padding: 60px 0;
     transition: var(--transition-normal);
 }
 
@@ -1338,7 +1340,7 @@ ul {
 }
 
 .video-modal-backdrop {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -1454,7 +1456,7 @@ ul {
     flex-shrink: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .gallery-nav {
@@ -1804,4 +1806,8 @@ ul {
     .footer-brand {
         grid-column: span 1;
     }
+}
+
+body.modal-open {
+    overflow: hidden;
 }
