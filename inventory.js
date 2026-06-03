@@ -10,8 +10,8 @@ export const siteConfig = {
 export const cars = [
     // --- DEALS OF THE WEEK SECTION ---
     {
-        id: "honda-accord-2013",
-        name: "Honda Accord 2013",
+        id: "honda-accord-2014",
+        name: "Honda Accord 2014",
         status: "Belgium Grade",
         price: "₦9,500,000",
         photo: "/coupe card.jpeg",
@@ -26,7 +26,7 @@ export const cars = [
         video: "/public/mmm accord coupe.mp4",
         tag: "DISTRESS DEAL",
         tagClass: "label-luxury",
-        specs: ["Engine: L4 2.4L", "Mileage: 89k mi", "Non-Accidented", "Keyless Entry"],
+        specs: ["Engine: V6", "Mileage: 89k mi", "Non-Accidented", "Keyless Entry"],
         isDeal: true
     },
     {
@@ -47,23 +47,27 @@ export const cars = [
         video: "public/mmm cls.mp4",
         tag: "BELGIUM GRADE",
         tagClass: "label-luxury",
-        specs: ["Engine: V8 BiTurbo", "Mileage: 45k mi", "Non-Accidented", "Keyless Go"],
+        specs: ["Engine: V8 BiTurbo", "Mileage: 45k mi", "Red Interior", "Keyless Go"],
         isDeal: true
     },
     {
-        id: "accord2013",
-        name: "Honda Accord 2013",
+        id: "Panamera2012",
+        name: "Porsche Panamera 2012",
         status: "Local Used",
-        price: "₦4,200,000",
-        photo: "https://images.unsplash.com/photo-1593460354583-421711202868?auto=format&fit=crop&w=600&q=80",
+        price: "₦13,000,000",
+        photo: "public/Porsche Card.jpeg",
         images: [
-            "https://images.unsplash.com/photo-1593460354583-421711202868?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80"
+            "public/Porsche Front.jpeg",
+            "public/Porshe Back.jpeg",
+            "public/Porsche Interior 1.jpeg",
+            "public/Porsche steering.jpeg",
+            "public/Porsche Interior 1.jpeg",
+            "public/Porsche Interior 2.jpeg"
         ],
         video: "https://assets.mixkit.co/videos/preview/mixkit-white-car-driving-on-a-wet-highway-at-night-42289-large.mp4",
         tag: "LOCAL USED",
         tagClass: "label-luxury",
-        specs: ["Engine: L4 2.4L", "Mileage: 120k mi", "Clean Title", "Key Start"],
+        specs: ["Engine: V6", "Mileage: 120k mi", "Neatly Used", "Bucket Seats"],
         isDeal: true
     },
 

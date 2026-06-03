@@ -1793,6 +1793,10 @@ ul {
         display: none;
     }
     
+    .video-indicator {
+        display: none !important;
+    }
+    
     .mobile-toggle {
         display: flex;
     }
