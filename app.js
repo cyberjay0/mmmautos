@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MMM Autos Interactivity Script - Revamp Version
+   MMM Autos Interactivity Script - Luxury Version
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,30 +11,86 @@ document.addEventListener('DOMContentLoaded', () => {
     const appWrapper = document.getElementById('app-wrapper');
 
     if (preloader && appWrapper) {
-        // Run preloader for exactly 3.5 seconds (3500ms)
         setTimeout(() => {
-            // Fade out preloader
             preloader.classList.add('fade-out');
-            
-            // Fade in main site wrapper
             appWrapper.classList.add('fade-in');
             
-            // Fully remove preloader from layout after fade animation finishes (800ms)
             setTimeout(() => {
                 preloader.style.display = 'none';
             }, 800);
         }, 3500);
     } else {
-        // Fallback if elements do not exist
         if (appWrapper) appWrapper.classList.add('fade-in');
     }
 
 
+    // ==========================================
+    // 1. Adaptive Header Scroll State
+    // ==========================================
+    const mainHeader = document.getElementById('main-header');
+    
+    function checkHeaderScroll() {
+        if (window.scrollY > 45) {
+            mainHeader.classList.add('scrolled');
+        } else {
+            mainHeader.classList.remove('scrolled');
+        }
+    }
 
+    if (mainHeader) {
+        // Run on load in case page was refreshed scrolled
+        checkHeaderScroll();
+        window.addEventListener('scroll', checkHeaderScroll);
+    }
 
 
     // ==========================================
-    // 2. Hover-to-Play Video Walkthrough
+    // 2. High-Performance Scroll Reveal & Stagger
+    // ==========================================
+    // Detection observer looking for scroll entry triggers
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                
+                // Add staggered transition delays if item is a grid item or list item
+                const parent = target.parentNode;
+                if (parent) {
+                    const isStaggerContainer = 
+                        parent.classList.contains('deals-grid') || 
+                        parent.classList.contains('inventory-grid') || 
+                        parent.classList.contains('why-grid') || 
+                        parent.classList.contains('services-container') ||
+                        parent.classList.contains('nav-list');
+                        
+                    if (isStaggerContainer) {
+                        const siblings = Array.from(parent.children);
+                        const index = siblings.indexOf(target);
+                        if (index !== -1) {
+                            // Stagger transition-delay by 100ms per index item
+                            target.style.transitionDelay = `${index * 0.12}s`;
+                        }
+                    }
+                }
+                
+                target.classList.add('reveal-active');
+                revealObserver.unobserve(target); // Only animate once
+            }
+        });
+    }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px' // Triggers slightly before entering fully
+    });
+
+    // Observe all elements marked for scroll-reveal
+    const elementsToReveal = document.querySelectorAll('.reveal');
+    elementsToReveal.forEach(el => {
+        revealObserver.observe(el);
+    });
+
+
+    // ==========================================
+    // 3. Hover-to-Play Video Walkthrough
     // ==========================================
     const hoverCards = document.querySelectorAll('.hover-video-card');
 
@@ -77,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ==========================================
-    // 3. Walkthrough Video Modal Player
+    // 4. Walkthrough Video Modal Player
     // ==========================================
     const videoModal = document.getElementById('video-modal');
     const modalBackdrop = document.getElementById('video-modal-backdrop');
@@ -129,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ==========================================
-    // 4. Inventory Filtering System
+    // 5. Inventory Filtering System
     // ==========================================
     const filterTabsContainer = document.getElementById('filter-tabs');
     const filterBtns = document.querySelectorAll('.filter-btn');
@@ -163,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ==========================================
-    // 5. Mobile Navigation Menu Toggle
+    // 6. Mobile Navigation Menu Toggle
     // ==========================================
     const mobileToggle = document.getElementById('mobile-toggle');
     const navMenu = document.getElementById('nav-menu');
