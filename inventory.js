@@ -23,7 +23,7 @@ export const cars = [
             "/coupe interior.jpeg",
             "/coupe vin.jpeg"
         ],
-        video: "/mmm accord coupe.mp4",
+        video: "/Mmm-video.mp4",
         tag: "DISTRESS DEAL",
         tagClass: "label-luxury",
         isDeal: true
