@@ -308,11 +308,22 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Restore scroll position
         const scrollY = parseInt(document.body.getAttribute('data-scroll-y') || '0', 10);
+        
+        // Temporarily override smooth scroll to prevent visual scrolling animation
+        const htmlElement = document.documentElement;
+        const originalScrollBehavior = htmlElement.style.scrollBehavior;
+        htmlElement.style.scrollBehavior = 'auto';
+        
         document.body.style.position = '';
         document.body.style.top = '';
         document.body.style.width = '';
         document.body.removeAttribute('data-scroll-y');
         window.scrollTo(0, scrollY);
+        
+        // Restore original scroll behavior in the next animation frame
+        requestAnimationFrame(() => {
+            htmlElement.style.scrollBehavior = originalScrollBehavior;
+        });
         
         modalVideoPlayer.pause();
         modalVideoPlayer.src = '';
