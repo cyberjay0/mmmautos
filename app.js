@@ -2,8 +2,67 @@
    MMM Autos Interactivity Script - Luxury Version
    ========================================================================== */
 
+import { cars, siteConfig } from './inventory.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     
+    // ==========================================
+    // Dynamic Render Engine (Hero Wallpaper & Car Cards)
+    // ==========================================
+    
+    // 1. Dynamic Hero Background Image Wallpaper
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection && siteConfig && siteConfig.heroImage) {
+        heroSection.style.backgroundImage = `url('${siteConfig.heroImage}')`;
+    }
+
+    // 2. Dynamic Car Grid Rendering
+    const dealsContainer = document.getElementById('deals-grid-container');
+    const inventoryContainer = document.getElementById('inventory-grid-container');
+
+    function createCarCardHTML(car, type) {
+        const buttonText = type === 'deal' ? 'View Deal' : 'View Details';
+        const categoryAttr = car.category ? `data-category="${car.category}"` : '';
+
+        return `
+            <div class="car-card hover-video-card reveal" data-id="${car.id}" ${categoryAttr} data-video="${car.video}">
+                <div class="card-media-wrapper">
+                    <span class="card-tag ${car.tagClass}">${car.tag}</span>
+                    <img class="card-image active" src="${car.photo}" alt="${car.name}">
+                    <video class="card-video" loop muted playsinline></video>
+                    <div class="video-indicator">
+                        <svg class="play-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        Hover to view walkthrough
+                    </div>
+                </div>
+                <div class="card-info">
+                    <h3 class="car-name">${car.name}</h3>
+                    <p class="car-status">${car.status}</p>
+                    <div class="card-footer">
+                        <span class="car-price">${car.price}</span>
+                        <button class="btn btn-outline-dark btn-sm open-walkthrough-btn">${buttonText}</button>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    if (dealsContainer) {
+        const dealsHtml = cars
+            .filter(car => car.isDeal)
+            .map(car => createCarCardHTML(car, 'deal'))
+            .join('');
+        dealsContainer.innerHTML = dealsHtml;
+    }
+
+    if (inventoryContainer) {
+        const inventoryHtml = cars
+            .filter(car => car.isInventory)
+            .map(car => createCarCardHTML(car, 'inventory'))
+            .join('');
+        inventoryContainer.innerHTML = inventoryHtml;
+    }
+
     // ==========================================
     // 0. Preloader & Site Fade-in System
     // ==========================================
