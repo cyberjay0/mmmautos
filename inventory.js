@@ -64,7 +64,7 @@ export const cars = [
             "public/Porsche Interior 1.jpeg",
             "public/Porsche Interior 2.jpeg"
         ],
-        video: "https://assets.mixkit.co/videos/preview/mixkit-white-car-driving-on-a-wet-highway-at-night-42289-large.mp4",
+        video: "public/Porsche Video.mp4",
         tag: "LOCAL USED",
         tagClass: "label-luxury",
         specs: ["Engine: V6", "Mileage: 120k mi", "Neatly Used", "Bucket Seats"],
