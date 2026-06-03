@@ -1836,10 +1836,4 @@ ul {
 
 body.modal-open {
     overflow: hidden;
-    height: 100vh;
-}
-
-html:has(body.modal-open) {
-    overflow: hidden;
-    height: 100vh;
 }

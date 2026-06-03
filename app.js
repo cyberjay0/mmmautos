@@ -291,12 +291,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 5. Open Modal Panel
         detailsModal.classList.add('active');
+        
+        // Save current scroll position to prevent the page from jumping back to the top (hero section)
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        document.body.setAttribute('data-scroll-y', scrollY);
+        
         document.body.classList.add('modal-open');
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.width = '100%';
     }
 
     function closeDetailsModal() {
         detailsModal.classList.remove('active');
         document.body.classList.remove('modal-open');
+        
+        // Restore scroll position
+        const scrollY = parseInt(document.body.getAttribute('data-scroll-y') || '0', 10);
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.removeAttribute('data-scroll-y');
+        window.scrollTo(0, scrollY);
+        
         modalVideoPlayer.pause();
         modalVideoPlayer.src = '';
     }
