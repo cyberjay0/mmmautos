@@ -1,9 +1,35 @@
 /* ==========================================================================
-   MMM Autos Interactivity Script
+   MMM Autos Interactivity Script - Revamp Version
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
     
+    // ==========================================
+    // 0. Preloader & Site Fade-in System
+    // ==========================================
+    const preloader = document.getElementById('preloader');
+    const appWrapper = document.getElementById('app-wrapper');
+
+    if (preloader && appWrapper) {
+        // Run preloader for exactly 3.5 seconds (3500ms)
+        setTimeout(() => {
+            // Fade out preloader
+            preloader.classList.add('fade-out');
+            
+            // Fade in main site wrapper
+            appWrapper.classList.add('fade-in');
+            
+            // Fully remove preloader from layout after fade animation finishes (800ms)
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 800);
+        }, 3500);
+    } else {
+        // Fallback if elements do not exist
+        if (appWrapper) appWrapper.classList.add('fade-in');
+    }
+
+
     // ==========================================
     // 1. Currency Exchange System
     // ==========================================
@@ -45,10 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Apply minor rounding to match standard pricing looks (e.g. 5,200,000 Naira instead of 5,200,005)
             if (targetCurrency === 'NGN') {
-                // Round to nearest 100,000 for standard display, or nearest 50,000
                 convertedAmount = Math.round(convertedAmount / 50000) * 50000;
             } else if (targetCurrency === 'USD' || targetCurrency === 'EUR' || targetCurrency === 'GBP') {
-                // Round to nearest 100 for clean figures
                 convertedAmount = Math.round(convertedAmount / 100) * 100;
             } else {
                 convertedAmount = Math.round(convertedAmount);
@@ -97,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             image.classList.remove('active');
             video.classList.add('active');
 
-            // Play video with error catch (for autoplay restriction compliance)
+            // Play video with error catch
             const playPromise = video.play();
             if (playPromise !== undefined) {
                 playPromise.catch(error => {
