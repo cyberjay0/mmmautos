@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <defs>
+    <style>
+      .brand-title { font-family: 'Outfit', 'Inter', sans-serif; font-weight: 900; font-size: 20px; fill: #D3121A; }
+      .brand-subtitle { font-family: 'Outfit', 'Inter', sans-serif; font-weight: 700; font-size: 8px; fill: #111625; letter-spacing: 3px; }
+      .circle-arc-red { fill: none; stroke: #D3121A; stroke-width: 2; stroke-linecap: round; }
+      .circle-arc-blue { fill: none; stroke: #1C3D5A; stroke-width: 1.5; stroke-dasharray: 4,4; }
+      .star { fill: #D3121A; }
+    </style>
+  </defs>
+
+  <!-- Left Logo Icon (Circular Badge) -->
+  <g transform="translate(10, 0)">
+    <!-- Outer Rings -->
+    <circle cx="40" cy="40" r="32" class="circle-arc-blue" />
+    <path d="M 12 40 A 28 28 0 0 1 68 40" class="circle-arc-red" />
+    <path d="M 15 45 A 25 25 0 0 0 65 45" fill="none" stroke="#1C3D5A" stroke-width="2" />
+    
+    <!-- Stars (5 stars arching over the top) -->
+    <path d="M 23 20 L 25 24 L 29 24.5 L 26 27.5 L 27 31.5 L 23 29.5 L 19 31.5 L 20 27.5 L 17 24.5 L 21 24 Z" class="star" transform="scale(0.8) translate(5, 5)" />
+    <path d="M 31 15 L 33 19 L 37 19.5 L 34 22.5 L 35 26.5 L 31 24.5 L 27 26.5 L 28 22.5 L 25 19.5 L 29 19 Z" class="star" transform="scale(0.8) translate(9, 2)" />
+    <path d="M 40 13 L 42 17 L 46 17.5 L 43 20.5 L 44 24.5 L 40 22.5 L 36 24.5 L 37 20.5 L 34 17.5 L 38 17 Z" class="star" transform="scale(0.8) translate(12, 1)" />
+    <path d="M 49 15 L 51 19 L 55 19.5 L 52 22.5 L 53 26.5 L 49 24.5 L 45 26.5 L 46 22.5 L 43 19.5 L 47 19 Z" class="star" transform="scale(0.8) translate(15, 2)" />
+    <path d="M 57 20 L 59 24 L 63 24.5 L 60 27.5 L 61 31.5 L 57 29.5 L 53 31.5 L 54 27.5 L 51 24.5 L 55 24 Z" class="star" transform="scale(0.8) translate(19, 5)" />
+    
+    <!-- Inner Emblem Car Silhouette -->
+    <path d="M 26 44 C 26 44 28 38 32 38 L 48 38 C 52 38 54 44 54 44 L 58 45 C 58 45 59 47 57 48 L 56 49 C 55 50 53 50 53 50 L 27 50 C 27 50 25 50 24 49 L 23 48 C 21 47 22 45 22 45 Z" fill="#D3121A" />
+    <circle cx="30" cy="50" r="4.5" fill="#111625" />
+    <circle cx="30" cy="50" r="2" fill="#FFF" />
+    <circle cx="50" cy="50" r="4.5" fill="#111625" />
+    <circle cx="50" cy="50" r="2" fill="#FFF" />
+  </g>
+
+  <!-- Right Logo Text -->
+  <g transform="translate(90, 42)">
+    <text x="0" y="0" class="brand-title" letter-spacing="0.5">MMM AUTOS</text>
+    <text x="2" y="12" class="brand-subtitle">LTD</text>
+  </g>
+</svg>
