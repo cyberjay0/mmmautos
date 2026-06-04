@@ -89,15 +89,15 @@ export const cars = [
         video: "https://assets.mixkit.co/videos/preview/mixkit-dashboard-of-a-car-driving-through-the-city-43187-large.mp4",
         tag: "SUV",
         tagClass: "label-luxury-white",
-        category: "suv",
+        category: "sedan",
         specs: ["Engine: V8 Biturbo", "AMG Mode", "Panoramic Roof", "White Seats"],
         isInventory: true
     },
     {
         id: "Jetour2024",
-        name: "Jetour Dash 2024",
+        name: "Jetour SUV 2025",
         status: "Foreign Used",
-        price: "₦31,000,000",
+        price: "₦53,000,000",
         photo: "/Jetour side.jpeg",
         images: [
             "/Jetour front.jpeg",
@@ -111,8 +111,8 @@ export const cars = [
         video: "https://assets.mixkit.co/videos/preview/mixkit-car-headlights-glowing-in-the-dark-43234-large.mp4",
         tag: "SEDAN",
         tagClass: "label-luxury-white",
-        category: "sedan",
-        specs: ["Engine: 4L Turbo", "Mileage: 4k miles", "Non-Accidented", "Keyless Go"],
+        category: "suv",
+        specs: ["Bucket Seats", "Mileage: 5k miles", "Full Petorl not EV", "Massive Infotainment"],
         isInventory: true
     },
     {
@@ -133,8 +133,8 @@ export const cars = [
         video: "https://assets.mixkit.co/videos/preview/mixkit-modern-car-driving-on-a-highway-43236-large.mp4",
         tag: "4X4 SUV",
         tagClass: "label-luxury-white",
-        category: "suv",
-        specs: ["Engine: V8 4.6L", "Mileage: 72k mi", "Non-Accidented", "Push Button Start"],
+        category: "sedan",
+        specs: ["Recent Entry", "Mileage: 80k Miles", "Batmobile", "Original Duty"],
         isInventory: true
     },
     {
@@ -154,8 +154,8 @@ export const cars = [
         video: "https://assets.mixkit.co/videos/preview/mixkit-sports-car-driving-fast-on-a-highway-34298-large.mp4",
         tag: "LUXURY SUV",
         tagClass: "label-luxury-white",
-        category: "suv luxury",
-        specs: ["Engine: V6 Supercharged", "Mileage: 50k mi", "Non-Accidented", "Keyless Entry"],
+        category: "truck",
+        specs: ["Reverse Camera", "Mileage: 50k miles", "Non-Accidented", "Original Duty"],
         isInventory: true
     }
 ];
