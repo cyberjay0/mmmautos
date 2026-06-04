@@ -87,7 +87,7 @@ export const cars = [
             "/e63 VIN.jpeg"
         ],
         video: "https://assets.mixkit.co/videos/preview/mixkit-dashboard-of-a-car-driving-through-the-city-43187-large.mp4",
-        tag: "SUV",
+        tag: "SEDAN",
         tagClass: "label-luxury-white",
         category: "sedan",
         specs: ["Engine: V8 Biturbo", "AMG Mode", "Panoramic Roof", "White Seats"],
@@ -109,7 +109,7 @@ export const cars = [
             "/jetour back.jpeg"
         ],
         video: "https://assets.mixkit.co/videos/preview/mixkit-car-headlights-glowing-in-the-dark-43234-large.mp4",
-        tag: "SEDAN",
+        tag: "SUV",
         tagClass: "label-luxury-white",
         category: "suv",
         specs: ["Bucket Seats", "Mileage: 5k miles", "Full Petorl not EV", "Massive Infotainment"],
@@ -131,7 +131,7 @@ export const cars = [
             "/Camry back.jpeg"
         ],
         video: "https://assets.mixkit.co/videos/preview/mixkit-modern-car-driving-on-a-highway-43236-large.mp4",
-        tag: "4X4 SUV",
+        tag: "MID SIZED SEDAN",
         tagClass: "label-luxury-white",
         category: "sedan",
         specs: ["Recent Entry", "Mileage: 80k Miles", "Batmobile", "Original Duty"],
@@ -152,7 +152,7 @@ export const cars = [
             "/Tacoma Back.jpeg"
         ],
         video: "https://assets.mixkit.co/videos/preview/mixkit-sports-car-driving-fast-on-a-highway-34298-large.mp4",
-        tag: "LUXURY SUV",
+        tag: "4 X 4 Truck",
         tagClass: "label-luxury-white",
         category: "truck",
         specs: ["Reverse Camera", "Mileage: 50k miles", "Non-Accidented", "Original Duty"],
