@@ -122,12 +122,12 @@ export const cars = [
         price: "₦32,000,000",
         photo: "/Camry card.jpeg",
         images: [
-            "/Camry front.jpeg",
-            "/Camry interior.jpeg",
+            "/Camry Front.jpeg",
+            "/Camry Interior.jpeg",
             "/Camry steering.jpeg",
-            "/Camry dash.jpeg",
+            "/Camry Dash.jpeg",
             "/Camry interior 2.jpeg",
-            "/Camry vin.jpeg",
+            "/Camry VIN.jpeg",
             "/Camry back.jpeg"
         ],
         video: "https://assets.mixkit.co/videos/preview/mixkit-modern-car-driving-on-a-highway-43236-large.mp4",
