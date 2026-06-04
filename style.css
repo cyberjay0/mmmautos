@@ -1797,7 +1797,12 @@ ul {
         display: none !important;
     }
     
+    .logo-container {
+        order: 1;
+    }
+    
     .mobile-toggle {
+        order: 3;
         display: flex;
     }
     
@@ -1855,7 +1860,15 @@ ul {
     }
     
     .header-actions {
+        order: 2;
+        margin-left: auto;
         margin-right: 20px;
+    }
+    
+    .header-actions .btn {
+        padding: 6px 12px;
+        font-size: 0.65rem;
+        letter-spacing: 1.2px;
     }
     
     .hero-title {
