@@ -4,7 +4,7 @@
 
 export const siteConfig = {
     // Hero background image wallpaper url
-    heroImage: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=1920&q=80"
+    heroImage: "public/MMM hero.png"
 };
 
 export const cars = [
@@ -23,7 +23,7 @@ export const cars = [
             "/coupe interior.jpeg",
             "/coupe vin.jpeg"
         ],
-        video: "/public/mmm accord coupe.mp4",
+        video: "https://res.cloudinary.com/dpwexegce/video/upload/v1780529286/mmm_accord_coupe_k19lpu.mp4",
         tag: "DISTRESS DEAL",
         tagClass: "label-luxury",
         specs: ["Engine: V6", "Mileage: 89k mi", "Non-Accidented", "Keyless Entry"],
@@ -44,7 +44,7 @@ export const cars = [
             "public/CLS interior 2.jpeg",
             "public/CLS Engine.jpeg"
         ],
-        video: "public/mmm cls.mp4",
+        video: "https://res.cloudinary.com/dpwexegce/video/upload/v1780529294/mmm_cls_geqswn.mp4",
         tag: "BELGIUM GRADE",
         tagClass: "label-luxury",
         specs: ["Engine: V8 BiTurbo", "Mileage: 45k mi", "Red Interior", "Keyless Go"],
@@ -64,7 +64,7 @@ export const cars = [
             "public/Porsche Interior 1.jpeg",
             "public/Porsche Interior 2.jpeg"
         ],
-        video: "public/Porsche Video.mp4",
+        video: "https://res.cloudinary.com/dpwexegce/video/upload/v1780529285/Porsche_Video_rnagep.mp4",
         tag: "LOCAL USED",
         tagClass: "label-luxury",
         specs: ["Engine: V6", "Mileage: 120k mi", "Neatly Used", "Bucket Seats"],
@@ -73,48 +73,62 @@ export const cars = [
 
     // --- FOREIGN USED INVENTORY SECTION ---
     {
-        id: "lexusrx350_2018",
-        name: "Lexus RX 350 2018",
+        id: "Mercedes-Benz-e63",
+        name: "Mercedes Benz E63 2010",
         status: "Foreign Used",
-        price: "₦22,800,000",
-        photo: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80",
+        price: "₦36,000,000",
+        photo: "public/e63 card.jpeg",
         images: [
-            "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?auto=format&fit=crop&w=600&q=80"
+            "public/e63 front.jpeg",
+            "public/e63 back.jpeg",
+            "public/e63 steering.jpeg",
+            "public/e63 interior.jpeg",
+            "public/e63 dash.jpeg",
+            "public/e63 VIN.jpeg"
         ],
         video: "https://assets.mixkit.co/videos/preview/mixkit-dashboard-of-a-car-driving-through-the-city-43187-large.mp4",
         tag: "SUV",
         tagClass: "label-luxury-white",
         category: "suv",
-        specs: ["Engine: V6 3.5L", "Mileage: 58k mi", "Non-Accidented", "Panoramic Roof"],
+        specs: ["Engine: V8 Biturbo", "AMG Mode", "Panoramic Roof", "White Seats"],
         isInventory: true
     },
     {
-        id: "mbc300_2017",
-        name: "Mercedes-Benz C300 2017",
+        id: "Jetour2024",
+        name: "Jetour Dash 2024",
         status: "Foreign Used",
-        price: "₦15,500,000",
-        photo: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80",
+        price: "₦31,000,000",
+        photo: "public/Jetour side.jpeg",
         images: [
-            "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80"
+            "public/Jetour front.jpeg",
+            "public/jetour interior 1.jpeg",
+            "public/Jetour steering.jpeg",
+            "public/Jetour dash.jpeg",
+            "public/jetour interior 2.jpeg",
+            "public/Jetour interior 3.jpeg",
+            "public/jetour back.jpeg"
         ],
         video: "https://assets.mixkit.co/videos/preview/mixkit-car-headlights-glowing-in-the-dark-43234-large.mp4",
         tag: "SEDAN",
         tagClass: "label-luxury-white",
         category: "sedan",
-        specs: ["Engine: L4 Turbo", "Mileage: 64k mi", "Non-Accidented", "Keyless Go"],
+        specs: ["Engine: 4L Turbo", "Mileage: 4k miles", "Non-Accidented", "Keyless Go"],
         isInventory: true
     },
     {
-        id: "landcruiser2016",
-        name: "Toyota Land Cruiser 2016",
+        id: "2021ToyotaCamry",
+        name: "Toyota Camry SE 2021",
         status: "Foreign Used",
-        price: "₦38,000,000",
-        photo: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80",
+        price: "₦32,000,000",
+        photo: "public/Camry card.jpeg",
         images: [
-            "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80"
+            "public/Camry front.jpeg",
+            "public/Camry interior.jpeg",
+            "public/Camry steering.jpeg",
+            "public/Camry dash.jpeg",
+            "public/Camry interior 2.jpeg",
+            "public/Camry vin.jpeg",
+            "public/Camry back.jpeg"
         ],
         video: "https://assets.mixkit.co/videos/preview/mixkit-modern-car-driving-on-a-highway-43236-large.mp4",
         tag: "4X4 SUV",
@@ -124,14 +138,18 @@ export const cars = [
         isInventory: true
     },
     {
-        id: "rangerover2018",
-        name: "Range Rover Sport 2018",
+        id: "Tacoma2018",
+        name: "Toyota Tacoma 2018",
         status: "Foreign Used",
-        price: "₦28,500,000",
-        photo: "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?auto=format&fit=crop&w=600&q=80",
+        price: "₦38,000,000",
+        photo: "Tacoma Side.jpeg",
         images: [
-            "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80"
+            "public/Tacoma front.jpeg",
+            "public/Tacoma steering.jpeg",
+            "public/Tacoma Dash.jpeg",
+            "public/Tacoma Interior.jpeg",
+            "public/Tacoma Side.jpeg",
+            "public/Tacoma Back.jpeg"
         ],
         video: "https://assets.mixkit.co/videos/preview/mixkit-sports-car-driving-fast-on-a-highway-34298-large.mp4",
         tag: "LUXURY SUV",
