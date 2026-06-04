@@ -890,6 +890,22 @@ ul {
     overflow: hidden;
 }
 
+/* Blurred cover image background to replace black pillarbox sidebars */
+.card-media-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background-image: var(--card-bg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(12px) brightness(0.65) saturate(1.2);
+    z-index: 1;
+    pointer-events: none;
+}
+
 .card-image {
     position: absolute;
     top: 0;
@@ -899,6 +915,7 @@ ul {
     object-fit: contain;
     opacity: 0;
     transition: transform var(--transition-slow), opacity var(--transition-normal);
+    z-index: 2;
 }
 
 .card-image.active {
@@ -918,6 +935,7 @@ ul {
     object-fit: contain;
     opacity: 0;
     transition: opacity var(--transition-normal);
+    z-index: 2;
 }
 
 .card-video.active {
@@ -929,7 +947,7 @@ ul {
     position: absolute;
     top: 16px;
     left: 16px;
-    z-index: 2;
+    z-index: 3;
 }
 
 .label-luxury {
@@ -975,7 +993,7 @@ ul {
     display: flex;
     align-items: center;
     gap: 6px;
-    z-index: 2;
+    z-index: 3;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     pointer-events: none;

@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return `
             <div class="car-card hover-video-card reveal" data-id="${car.id}" ${categoryAttr} data-video="${car.video}">
-                <div class="card-media-wrapper">
+                <div class="card-media-wrapper" style="--card-bg: url('${car.photo}');">
                     <span class="card-tag ${car.tagClass}">${car.tag}</span>
                     <img class="card-image active" src="${car.photo}" alt="${car.name}">
                     <video class="card-video" loop muted playsinline></video>
